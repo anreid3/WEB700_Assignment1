@@ -11,13 +11,15 @@
 ********************************************************************************/ 
 function getRandomInt(max) {
     let maxFloored = Math.floor(max);
-    return Math.floor(Math.random() * (max)); // The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max + 1)); // The maximum is exclusive and the minimum is inclusive
   }
 
+//Step 3
 let serverVerbs = ["GET", "GET", "GET", "POST", "GET", "POST"];
-let erverPaths = ["/", "/about", "/contact", "/login", "/panel", "/logout"];
+let serverPaths = ["/", "/about", "/contact", "/login", "/panel", "/logout"];
 let serverResponses = ["Welcome to WEB700 Assignment 1", "This assignment was prepared by Andrienne Reid", "Student Name: Andrienne Reid, Student Email: anreid3@myseneca.ca", "User Logged In", "Main Panel", "Logout Complete"];
 
+//Step 4
 function httpRequest(httpVerb, path) { 
     for (let i = 0; i < serverVerbs.length; i++) { 
         if (serverVerbs[i] === httpVerb && serverPaths[i] === path) { 
@@ -27,6 +29,7 @@ function httpRequest(httpVerb, path) {
     return `404: Unable to process ${httpVerb} request for ${path}`;
 }
 
+//Step 5
 console.log(httpRequest("GET", "/"));
 console.log(httpRequest("GET", "/about"));
 console.log(httpRequest("GET", "/contact"));
